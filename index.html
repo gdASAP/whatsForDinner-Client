@@ -10,8 +10,73 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
+  </head>
+<body>
+  <h1>What's for Dinner tho?</h1>
+  <h3>But first...sign up or sign in</h3>
+<p id='message'></p>
+<section>
+  <form id="sign-up-form">
+    <fieldset>
+      <!-- <legend>Sign up!</legend> -->
+      <input type="text" placeholder="Email" name="credentials[email]">
+      <input type="password" placeholder="Password" name="credentials[password]">
+      <input type="password" placeholder="Confirm Password" name="credentials[password_confirmation]">
+      <input type="submit" value="Sign Up">
+    </fieldset>
+  </form>
+</section>
+
+  <section>
+    <form id="sign-in-form">
+      <fieldset>
+        <!-- <legend>Sign in!</legend> -->
+        <input type="text" placeholder="Email" name="credentials[email]">
+        <input type="password" placeholder="Password" name="credentials[password]">
+        <input type="submit" value="Sign In">
+      </fieldset>
+    </form>
+  </section>
+
+    <section>
+      <form id="change-pw-form">
+        <fieldset>
+          <!-- <legend>Change Password!</legend> -->
+          <input type="password" placeholder="Old Password" name="passwords[old]">
+          <input type="password" placeholder="New Password" name="passwords[new]">
+          <input type="submit" value="Update PW">
+        </fieldset>
+      </form>
+    </section>
+
+
+      <section>
+        <form id="sign-out-form">
+            <input type="submit" value="Sign Out">
+          </fieldset>
+        </form>
+      </section>
+
+
+          <section>
+            <form id="create-dinner">
+              <fieldset>
+                <!-- <legend>Change Password!</legend> -->
+                <input type="name" placeholder="Name" name="name">
+                <input type="timeToPrepare" placeholder="Time To Prepare" name="timeToPrepare">
+                <input type="submit" value="Create Dinner">
+              </fieldset>
+            </form>
+          </section>
+
+      <section>
+        <form id="show-all-dinners">
+          <fieldset>
+                      <!-- <legend>Start game</legend> -->
+          <input type="submit" value="Show all dinner options">
+          </fieldset>
+        </form>
+      </section>
+
     </body>
 </html>
