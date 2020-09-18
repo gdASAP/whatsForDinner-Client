@@ -12,10 +12,12 @@ const onSignUpSuccess = function(response) {
 }
 const onSignUpFailure = function(error) {
 $('#message').text('Sign up failed. Try again ')
+$('#sign-up-form').trigger('reset')
 }
 
 const onSignInSuccess = function(response) {
   store.user = response.user
+  console.log('From auth ui:', store.user._id)
   $('#message').text('Sign in Successful ' + response.user.email)
   $('#sign-in-form').trigger('reset')
   $('#change-pw-form').show()
@@ -27,6 +29,7 @@ const onSignInSuccess = function(response) {
 }
 const onSignInFailure = function(error) {
 $('#message').text('Sign in failed. Try again ')
+$('#sign-in-form').trigger('reset')
 }
 
 const onChangePwSuccess = function () {

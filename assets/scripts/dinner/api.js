@@ -4,12 +4,13 @@ const events = require('./events')
 const ui = require('./ui')
 
 const createDinner = function (data) {
-console.log('the data is: ', data)
+//console.log('API call data: ', data)
+//console.log('API call token: ', store.user.token)
   return $.ajax({
     url: config.apiUrl + '/dinner',
     method:'POST',
     headers: {
-      Authorization: 'Authorization: Bearer=' + store.user.token
+      Authorization: 'Token token=' + store.user.token
     },
     data: data
   })
@@ -22,8 +23,9 @@ console.log('show dinners API called', store.user.token)
     url: config.apiUrl + '/dinner',
     method:'GET',
     headers: {
-      Authorization: 'Authorization: Bearer=' + store.user.token
-    }
+      Authorization: 'Token token=' + store.user.token
+    },
+    //data: data
   })
 }
 
