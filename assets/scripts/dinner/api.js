@@ -17,8 +17,8 @@ const createDinner = function (data) {
 }
 
 const showAllDinners = function () {
-console.log('show dinners API called', store.user.token)
-
+// console.log('show dinners API called', store.user.token)
+$('#dinnerLog').text('')
   return $.ajax({
     url: config.apiUrl + '/dinner',
     method:'GET',
