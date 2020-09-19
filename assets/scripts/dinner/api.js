@@ -24,8 +24,7 @@ console.log('show dinners API called', store.user.token)
     method:'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    //data: data
+    }
   })
 }
 

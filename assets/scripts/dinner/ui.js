@@ -16,6 +16,10 @@ const onCreateDinnerFailure = function (error) {
 const onShowAllDinnersSuccess = function (response) {
   $('#message').text('All Dinners Loaded')
   console.log('response is: ', response)
+  const rawData = response
+  const formattedHtml = 'Dinners: ' + rawData
+  $('#dinnerLog').append(JSON.stringify(rawData))
+
   //store.game = response.game
 }
 
