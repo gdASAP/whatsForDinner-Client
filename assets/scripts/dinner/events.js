@@ -33,8 +33,36 @@ const onShowAllDinners = function(event) {
   .catch(ui.onShowAllDinnersFailure)
 }
 
+const onUpdateDinner = function (event) {
+  event.preventDefault()
+  const updateForm = event.target //get the form from the event
+  const updateDataForm = getFormFields(updateForm) //get the data from the form
+  console.log('formData is ', updateDataForm)
+
+  const updateData = {
+    name: updateDataForm.dinner.name,
+    timeToPrepare: updateDataForm.dinner.timeToPrepare,
+    owner: store.user._id
+  }
+api.updateDinner(updateData)
+.then(ui.onUpdateDinnerSuccess)
+.catch(ui.onUpdateDinnerFailure)
+}
+
+const onDeleteDinner = function(event) {
+  const data = {
+    owner: store.user._id
+  }
+  event.preventDefault()
+  api.deleteDinner()
+  .then(ui.onDeleteDinnerSuccess)
+  .catch(ui.onDeleteDinnerFailure)
+}
+
 
 module.exports = {
   onCreateDinner,
-  onShowAllDinners
+  onShowAllDinners,
+  onUpdateDinner,
+  onDeleteDinner
 }

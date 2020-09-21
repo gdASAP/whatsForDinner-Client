@@ -17,7 +17,7 @@ $('#sign-up-form').trigger('reset')
 
 const onSignInSuccess = function(response) {
   store.user = response.user
-  // console.log('From auth ui:', store.user._id)
+  //console.log('From auth ui:', response)
   $('#message').text('Sign in Successful ' + response.user.email)
   $('#sign-in-form').trigger('reset')
   $('#change-pw-form').show()
