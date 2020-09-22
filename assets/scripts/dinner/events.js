@@ -3,6 +3,8 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('./../store')
 
+
+
 const onCreateDinner = function (event) {
   event.preventDefault()
   const form = event.target //get the form from the event
@@ -37,10 +39,9 @@ const onUpdateDinner = function (event) {
   event.preventDefault()
   const updateForm = event.target //get the form from the event
   const updateDataForm = getFormFields(updateForm) //get the data from the form
-  console.log('formData is ', updateDataForm)
+  //console.log('formData is ', updateDataForm)
 api.updateDinner(updateDataForm)
 .then(ui.onUpdateDinnerSuccess)
-.then(onShowAllDinners())
 .catch(ui.onUpdateDinnerFailure)
 }
 
@@ -51,7 +52,6 @@ const onDeleteDinner = function(event) {
   event.preventDefault()
   api.deleteDinner()
   .then(ui.onDeleteDinnerSuccess)
-  .then(onShowAllDinners())
   .catch(ui.onDeleteDinnerFailure)
 }
 

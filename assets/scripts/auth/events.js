@@ -4,6 +4,17 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('./../store')
 
+const onPageLoad = function (event) {
+  //console.log('window is loaded')
+  $('#sign-out-form').hide()
+  $('#change-pw-form').hide()
+  $('.container').hide()
+  $('#create-dinner').hide()
+  $('#show-all-dinners').hide()
+  $('#delete-dinner').hide()
+  $('#update-dinner').hide()
+}
+
 const onSignUp = function (event) {
  event.preventDefault()
  const form = event.target //get the form from the event
@@ -48,5 +59,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePw,
-  onSignOut
+  onSignOut,
+  onPageLoad
 }

@@ -3,6 +3,9 @@ const config = require('./../config')
 const events = require('./events')
 const ui = require('./ui')
 
+let currentIndex = ''
+
+
 const createDinner = function (data) {
 //console.log('API call data: ', data)
 //console.log('API call token: ', store.user.token)
@@ -36,10 +39,10 @@ $('#7').text('')
 }
 
 const updateDinner = function (data) {
-console.log('API call data: ', data)
-console.log('updating: ', `${ui.dinnerArray[0]}`)
+//console.log('API call data: ', data)
+//console.log('updating: ', `${ui.dinnerArray[currentIndex]}`)
   return $.ajax({
-    url: config.apiUrl + '/dinner/' + `${ui.dinnerArray[0]}`,
+    url: config.apiUrl + '/dinner/' + `${ui.dinnerArray[currentIndex]}`,
     method:'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -49,11 +52,10 @@ console.log('updating: ', `${ui.dinnerArray[0]}`)
 }
 
 const deleteDinner = function () {
-//ui.dinnerArray.length = 0
- console.log('deleting: ', `${ui.dinnerArray[0]}`)
- console.log('dinnerArray: ', `${ui.dinnerArray[0]}`)
+ //console.log('deleting: ', `${ui.dinnerArray[currentIndex]}`)
+ //console.log('dinnerArray: ', `${ui.dinnerArray[currentIndex]}`)
   return $.ajax({
-    url: config.apiUrl + '/dinner/' + `${ui.dinnerArray[0]}`,
+    url: config.apiUrl + '/dinner/' + `${ui.dinnerArray[currentIndex]}`,
     method:'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -61,9 +63,21 @@ const deleteDinner = function () {
   })
 }
 
+const onBoxClick = function (event) {
+  const box = $(event.target)
+  currentIndex = `${event.target.id}`
+  // console.log('box locator: ', `${event.target.id}`)
+  // console.log(`${ui.dinnerNameArray[currentIndex]} `, 'selected')
+  $('#message').text(`${ui.dinnerNameArray[currentIndex]} Selected `)
+  $('#delete-dinner').show()
+  $('#update-dinner').show()
+}
+
 module.exports = {
   createDinner,
   showAllDinners,
   updateDinner,
-  deleteDinner
+  deleteDinner,
+  onBoxClick,
+  currentIndex
 }

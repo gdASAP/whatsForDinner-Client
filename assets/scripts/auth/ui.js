@@ -1,8 +1,13 @@
 'use strict'
 const store = require('./../store')
 
+
 if (store.user === null) {
   $('#sign-out-form').hide()
+  $('#create-dinner').hide()
+  $('#update-dinner').hide()
+  $('#delete-dinner').hide()
+  $('#show-all-dinners').hide()
 
 }
 
@@ -21,6 +26,8 @@ const onSignInSuccess = function(response) {
   $('#message').text('Sign in Successful ' + response.user.email)
   $('#sign-in-form').trigger('reset')
   $('#change-pw-form').show()
+  $('#create-dinner').show()
+  $('#show-all-dinners').show()
   $('#sign-in-form').hide()
   $('#sign-up-form').hide()
   $('#sign-out-form').show()
@@ -56,9 +63,15 @@ const onSignOutSuccess = function () {
   $('#sign-up-form').show()
   $('#sign-out-form').hide()
   $('#change-pw-form').hide()
+  $('.container').hide()
+  $('#create-dinner').hide()
+  $('#show-all-dinners').hide()
+  $('#update-dinner').hide()
+  $('#delete-dinner').hide()
 
   //console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
+  // console.log('store.user ', store.user)
 }
 
 const onSignOutFailure = function (error) {
