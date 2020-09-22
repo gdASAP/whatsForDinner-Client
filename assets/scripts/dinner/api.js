@@ -35,23 +35,25 @@ $('#7').text('')
   })
 }
 
-const updateDinner = function (updateData) {
-console.log('API call data: ', updateData)
-console.log('API call token: ', store.user.token)
+const updateDinner = function (data) {
+console.log('API call data: ', data)
+console.log('updating: ', `${ui.dinnerArray[0]}`)
   return $.ajax({
-    url: config.apiUrl + '/dinner/' + '5f68c6beb5238374d688c01a',
+    url: config.apiUrl + '/dinner/' + `${ui.dinnerArray[0]}`,
     method:'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    updateData: updateData
+    data: data
   })
 }
 
 const deleteDinner = function () {
-//  console.log('deleting: ', `${dinnerArray[0]}`)
+//ui.dinnerArray.length = 0
+ console.log('deleting: ', `${ui.dinnerArray[0]}`)
+ console.log('dinnerArray: ', `${ui.dinnerArray[0]}`)
   return $.ajax({
-    url: config.apiUrl + '/dinner/' + '5f66298e9074c95642d37ecc',
+    url: config.apiUrl + '/dinner/' + `${ui.dinnerArray[0]}`,
     method:'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token

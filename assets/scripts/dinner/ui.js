@@ -1,10 +1,14 @@
 const store = require('./../store')
 const api = require('./api')
+const events = require('./events')
+
+let dinnerArray = []
 
 const onCreateDinnerSuccess = function (response) {
   //store.game = response.game
   //console.log('response: ', response)
   $('#message').text('Dinner Created successfully')
+  $('#create-dinner').trigger('reset')
   //console.log('response is: ', response)
 }
 
@@ -16,20 +20,12 @@ const onCreateDinnerFailure = function (error) {
 
 const onShowAllDinnersSuccess = function (response) {
   $('#message').text('All Dinners Loaded')
-  console.log('response is: ', response)
-  let dinnerArray = []
-  //const resArr = JSON.parse(response)
-  //console.log('Array: ', resArr)
   const rawData = response
   console.log(rawData.dinner)
-  console.log(rawData.dinner.length)
   for ( let i = 0; i < rawData.dinner.length; i++) {
     dinnerArray.push(rawData.dinner[i]._id)
-    console.log('dinner Array: ', dinnerArray)
-  //  store.ArrayID[i] = `${dinnerArray[i]}`
   $(`#${i}`).append(rawData.dinner[i].name + '   ' + rawData.dinner[i].timeToPrepare + '    ')
   }
-  //console.log('storeArray 0: ', store.ArrayID)
   }
 
 const onShowAllDinnersFailure = function (error) {
@@ -42,6 +38,7 @@ const onUpdateDinnerSuccess = function (response) {
   //console.log('response: ', response)
   $('#message').text('Dinner Updated successfully')
   console.log('UI response is: ', response)
+  $('#update-dinner').trigger('reset')
 }
 //
 const onUpdateDinnerFailure = function (error) {
@@ -69,5 +66,6 @@ onShowAllDinnersFailure,
 onUpdateDinnerSuccess,
 onUpdateDinnerFailure,
 onDeleteDinnerSuccess,
-onDeleteDinnerFailure
+onDeleteDinnerFailure,
+dinnerArray
 }
