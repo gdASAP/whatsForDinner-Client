@@ -68,7 +68,7 @@ const onBoxClick = function (event) {
   currentIndex = `${event.target.id}`
   // console.log('box locator: ', `${event.target.id}`)
   // console.log(`${ui.dinnerNameArray[currentIndex]} `, 'selected')
-  $('#message').text(`${ui.dinnerNameArray[currentIndex]} Selected `)
+  $('#message').text(`${ui.dinnerNameArray[currentIndex]} selected `)
   $('#delete-dinner').show()
   $('#update-dinner').show()
 }

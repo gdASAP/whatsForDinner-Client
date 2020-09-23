@@ -46,7 +46,7 @@ const onShowAllDinnersSuccess = function (response) {
   for ( let i = 0; i < rawData.dinner.length; i++) {
     dinnerArray.push(rawData.dinner[i]._id)
     dinnerNameArray.push(rawData.dinner[i].name)
-  $(`#${i}`).append(rawData.dinner[i].name + '   ' + rawData.dinner[i].timeToPrepare + '    ')
+  $(`#${i}`).append(rawData.dinner[i].name + '<br>' + rawData.dinner[i].timeToPrepare)
   }
   }
 
