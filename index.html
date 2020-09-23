@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>What's for Dinner</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  </head>
+<body>
+  <!-- <div class="Navigation">
+    <div class="row">
+  <div class="column">
+  <button type="button" class="btn btn-outline-primary">Sign Up</button>
+  <button type="button" class="btn btn-outline-primary">Sign In</button>
+  <button type="button" class="btn btn-outline-primary">Change PW</button>
+  <button type="button" class="btn btn-outline-primary">Sign Out</button>
+</div> -->
+
+
+</div>
+  <div class="header">
+  <h1>What's for dinner?</h1>
+  <p></p>
+</div>
+
+<p id='message'></p>
+<section>
+  <form id="sign-up-form">
+    <fieldset>
+      <!-- <legend>Sign up!</legend> -->
+      <input type="text" placeholder="Email" name="credentials[email]">
+      <input type="password" placeholder="Password" name="credentials[password]">
+      <input type="password" placeholder="Confirm Password" name="credentials[password_confirmation]">
+      <input type="submit" value="Sign Up">
+    </fieldset>
+  </form>
+</section>
+
+  <section>
+    <form id="sign-in-form">
+      <fieldset>
+        <!-- <legend>Sign in!</legend> -->
+        <input type="text" placeholder="Email" name="credentials[email]">
+        <input type="password" placeholder="Password" name="credentials[password]">
+        <input type="submit" value="Sign In">
+      </fieldset>
+    </form>
+  </section>
+
+    <section>
+      <form id="change-pw-form">
+        <fieldset>
+          <!-- <legend>Change Password!</legend> -->
+          <input type="password" placeholder="Old Password" name="passwords[old]">
+          <input type="password" placeholder="New Password" name="passwords[new]">
+          <input type="submit" value="Update PW">
+        </fieldset>
+      </form>
+    </section>
+
+
+      <section>
+        <form id="sign-out-form">
+            <input type="submit" value="Sign Out">
+          </fieldset>
+        </form>
+      </section>
+
+
+          <section>
+            <form id="create-dinner">
+              <fieldset>
+                <!-- <legend>Change Password!</legend> -->
+                <input type="name" placeholder="Name" name="dinner[name]">
+                <input type="timeToPrepare" placeholder="Time To Prepare" name="dinner[timeToPrepare]">
+                <input type="submit" value="Create Dinner">
+              </fieldset>
+            </form>
+          </section>
+
+      <section>
+        <form id="show-all-dinners">
+          <fieldset>
+                      <!-- <legend>Start game</legend> -->
+          <input type="submit" value="Show all dinner options">
+          </fieldset>
+        </form>
+      </section>
+
+      <div>
+      <p id='dinnerLog'></p>
+      </div>
+
+      <section>
+        <form id="update-dinner">
+          <fieldset>
+            <!-- <legend>Change Password!</legend> -->
+            <input type="name" placeholder="Name" name="dinner[name]">
+            <input type="timeToPrepare" placeholder="Time To Prepare" name="dinner[timeToPrepare]">
+            <input type="submit" value="Update Dinner">
+          </fieldset>
+        </form>
+      </section>
+
+      <section>
+        <form id="delete-dinner">
+          <fieldset>
+                      <!-- <legend>Start game</legend> -->
+          <input type="submit" value="Delete a dinner option">
+          </fieldset>
+        </form>
+      </section>
+
+      <section>
+          <div class="board">
+            <div data-cell-index="0"></div>
+          </div>
+        </section>
+
+  <div class="container">
+  <p> To update or delete entries, select it from the list. </p>
+    <div class="row board h-100">
+        <div class="col" id="0"></div>
+        <div class="col" id="1"></div>
+        <div class="col" id="2"></div>
+        <div class="col" id="3"></div>
+      </div>
+      <div class="row board h-100">
+        <div class="col" id="4"></div>
+        <div class="col" id="5"></div>
+        <div class="col" id="6"></div>
+        <div class="col" id="7"></div>
+      </div>
+
+
+        <div id="name"></div>
+      </div>
+
+
+    </body>
+</html>
